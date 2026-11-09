@@ -58,6 +58,7 @@ Each one can be checked in Lens Studio's preview.
 ## Risks and open questions
 - Outdoor locate positioning isn't centimeter-accurate in reality. Kept deliberately: the whole design point is drawing the corridor at real tolerance width instead of a fake-precise line, and the video says this plainly as an honest close rather than hiding it.
 - Hand/bucket/pinch interactions are driven by mouse in Lens Studio's Interactive Preview (clicking acts as a pinch), not real hand tracking — SIK-based so the logic matches real hand input, but the felt quality of real hands is unproven until tried on-device.
+- Automated LEAF scenario testing was attempted (a full state-machine playthrough scenario was written) but abandoned: the installed LEAF.lspkg 4.0.0 package has a type-checking bug in its own shipped ScenarioIndexDecorator.ts that breaks compilation for any project using `@scenariosIndex`, independent of anything in this Lens's own code. Verified manually in Preview instead.
 
 ## Build notes for CLAD
 - Build for SPECS so it runs and can be demonstrated in Lens Studio's preview. No SPECS device is available.
