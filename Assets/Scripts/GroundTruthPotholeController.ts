@@ -52,6 +52,7 @@ export class GroundTruthPotholeController extends BaseScriptComponent {
 
     private holeObj: SceneObject | null = null;
     private gaugeObj: SceneObject | null = null;
+    private unsubscribePinch: (() => void) | null = null;
 
     onAwake() {
         if (!this.gasCorridor || !this.ringProximity || !this.groundRoot) {
@@ -67,6 +68,17 @@ export class GroundTruthPotholeController extends BaseScriptComponent {
         this.depthAccumCm = 0;
         this.prevHandY = null;
         this.goingDown = false;
+
+        // Real down-up hand-tip strokes are the primary input (works on-device). A pinch
+        // while the hand is in the ring is also accepted as one stroke -- desktop Preview's
+        // mouse-driven hand mostly rides along whatever surface it's pointed at, so its
+        // world-Y barely moves even while actively dragging, and the dip-based detection
+        // above can't reliably fire from mouse input alone. Pinch is a clean, unambiguous
+        // signal either way.
+        const hand = HandInputData.getInstance().getHand("right");
+        this.unsubscribePinch = hand.onPinchDown.add(() => {
+            if (this.active && this.ringProximity.isHandInRing()) this.onStrokeCompleted();
+        });
 
         const ringPos = this.gasCorridor.getRingWorldPosition();
         const diameterCm = 2 * this.gasCorridor.getToleranceCm();
@@ -91,6 +103,10 @@ export class GroundTruthPotholeController extends BaseScriptComponent {
         this.depthAccumCm = 0;
         this.prevHandY = null;
         this.goingDown = false;
+        if (this.unsubscribePinch) {
+            this.unsubscribePinch();
+            this.unsubscribePinch = null;
+        }
         if (this.holeObj) {
             this.holeObj.destroy();
             this.holeObj = null;
