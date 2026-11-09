@@ -131,6 +131,13 @@ export class GroundTruthSnapAnimationController extends BaseScriptComponent {
         }
     }
 
+    // TEMP DEBUG: forces the same path a real "Confirm exposed" pinch takes. Used only
+    // by GroundTruthDebugAutoPlay while hand/pinch input is unavailable in this session.
+    debugForceConfirm(): void {
+        if (!this.pipeObj) return;
+        this.onConfirmPinched(this.pipeObj.getTransform().getWorldPosition());
+    }
+
     private onConfirmPinched(pipeWorldPos: vec3): void {
         if (this.confirmed) return;
         this.confirmed = true;

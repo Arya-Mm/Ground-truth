@@ -96,6 +96,12 @@ export class GroundTruthNextCrewController extends BaseScriptComponent {
         this.nextCrewLabelObj.getTransform().setLocalPosition(new vec3(0, 20, this.nextCrewTargetLocalZCm));
     }
 
+    // TEMP DEBUG: forces the same path a real "Next crew arrives" pinch takes. Used only
+    // by GroundTruthDebugAutoPlay while hand/pinch input is unavailable in this session.
+    debugForceNextCrew(): void {
+        this.onNextCrewTagPinched();
+    }
+
     private onNextCrewTagPinched(): void {
         this.resetForNextCrew();
         this.onNextCrewPinched.invoke();

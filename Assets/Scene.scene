@@ -8,6 +8,7 @@
     - !<own> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
     - !<own> 81b2872f-b7ea-43e0-8f6e-abbd7b43dad6
     - !<own> 4b2f8f1a-f912-48cb-976d-d8e7e2b906ef
+    - !<own> f86cb284-2897-4bfb-a154-0a3551b57ff9
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -180,6 +181,32 @@
   FalloffType: None
   FalloffRange: .inf
   ShadowType: None
+- !<ScriptComponent/00d269d8-94cb-4b39-b0c8-fa66c6bb8aa7>
+  PrefabRemaps:
+    []
+  Name: GroundTruthDebugAutoPlay
+  Enabled: true
+  ScriptAsset: !<reference> c85164c3-64a3-411d-8b35-833136d5c073
+  ScriptInputsDefault:
+    startDelaySec: true
+    strokeIntervalSec: true
+    verifyDelaySec: true
+    nextCrewDelaySec: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      ringProximity: !<MappingBased.AssignableType_1> 912f4eea-d3d3-4d9f-839f-b4a25a866d9b
+      pothole: !<MappingBased.AssignableType_2> 69940757-886a-42f3-bee8-7db759c97802
+      snapAnim: !<MappingBased.AssignableType_3> df90cfd1-d3ba-46b0-8699-2283c92974b5
+      nextCrew: !<MappingBased.AssignableType_4> 1eaeb381-862e-4b1f-a94f-bd08599c0143
+      startDelaySec: 4.500000
+      strokeIntervalSec: 0.450000
+      verifyDelaySec: 1.800000
+      nextCrewDelaySec: 3.200000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/012a3973-9507-4230-a6ff-2b8dfd2154fe>
   PrefabRemaps:
     []
@@ -3054,6 +3081,21 @@
     - !<own> a7526b33-fca3-4f28-8e32-b0e9aa13c4b4
   Components:
     []
+- !<SceneObject/f86cb284-2897-4bfb-a154-0a3551b57ff9>
+  PrefabRemaps:
+    []
+  Name: DebugAutoPlay
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 00d269d8-94cb-4b39-b0c8-fa66c6bb8aa7
 - !<SceneObject/fb4f96e2-3158-4bcc-b02e-9049d2cc8fac>
   PrefabRemaps:
     []

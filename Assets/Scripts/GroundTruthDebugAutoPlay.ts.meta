@@ -1,0 +1,70 @@
+- !<AssetImportMetadata/a13e01d5-35e2-44bd-b6e4-fb9975c7e4e5>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c85164c3-64a3-411d-8b35-833136d5c073
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c85164c3-64a3-411d-8b35-833136d5c073
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ff47e9b9-7428-484d-8d46-db6970777f42
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ff47e9b9-7428-484d-8d46-db6970777f42>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 32c54585-063f-4e41-a406-f3f1e3bf28cc
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    nextCrew: false
+    nextCrewDelaySec: false
+    pothole: false
+    ringProximity: false
+    snapAnim: false
+    startDelaySec: false
+    strokeIntervalSec: false
+    verifyDelaySec: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - ringProximity: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      pothole: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      snapAnim: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      nextCrew: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      startDelaySec: 4.500000
+      strokeIntervalSec: 0.450000
+      verifyDelaySec: 1.800000
+      nextCrewDelaySec: 3.200000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F87171;\">TEMP DEBUG: auto-plays the whole loop on a timer. Delete after recording.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - // @input AssignableType_1 ringProximity
+    - // @input AssignableType_2 pothole
+    - // @input AssignableType_3 snapAnim
+    - // @input AssignableType_4 nextCrew
+    - '// @input float startDelaySec = 4.5 {"hint":"Seconds after Lens start before forcing hand-into-ring (must be longer than the ACQUIRE scan-sweep)."}'
+    - '// @input float strokeIntervalSec = 0.45 {"hint":"Seconds between each forced dig stroke."}'
+    - '// @input float verifyDelaySec = 1.8 {"hint":"Seconds to wait after the hole completes before forcing the Confirm-exposed pinch (lets the pipe reveal be seen)."}'
+    - '// @input float nextCrewDelaySec = 3.2 {"hint":"Seconds to wait after the snap animation before forcing Next-crew-arrives (lets the arrow/stamp be seen)."}'

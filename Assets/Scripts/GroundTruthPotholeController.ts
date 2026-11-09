@@ -137,6 +137,12 @@ export class GroundTruthPotholeController extends BaseScriptComponent {
         this.prevHandY = handY;
     }
 
+    // TEMP DEBUG: forces one dig stroke, same path a real down-up hand stroke takes.
+    // Used only by GroundTruthDebugAutoPlay while hand input is unavailable this session.
+    debugForceStroke(): void {
+        this.onStrokeCompleted();
+    }
+
     private onStrokeCompleted(): void {
         const depthCm = this.gasCorridor.depthCm;
         this.depthAccumCm = Math.min(this.depthAccumCm + this.strokeDeepenCm, depthCm);
