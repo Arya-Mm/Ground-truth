@@ -19,3 +19,6 @@ node_modules/
 .virtual-scene.runtime.json
 tempAssetGen/
 
+
+# Added by Lens Studio (LEAF plugin)
+leaf_plugin_settings.json

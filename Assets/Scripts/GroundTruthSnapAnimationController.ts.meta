@@ -28,7 +28,13 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    correctedToleranceCm: false
+    correctionOffsetCm: false
+    gasCorridor: false
+    groundRoot: false
+    pipeDiameterCm: false
+    pothole: false
+    tweenDurationSec: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -38,10 +44,28 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - gasCorridor: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      pothole: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      groundRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      correctionOffsetCm: !<float> 70.000000
+      pipeDiameterCm: !<float> 10.000000
+      correctedToleranceCm: !<float> 15.000000
+      tweenDurationSec: 1.200000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">GroundTruthSnapAnimationController - VERIFY: pipe reveal + snap tween + offset arrow</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - // @input AssignableType_1 gasCorridor
+    - // @input AssignableType_2 pothole
+    - // @input SceneObject groundRoot
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - "// @input float correctionOffsetCm = 70 {\"hint\":\"Mocked ground-truth: how far sideways (cm) the true pipe sits from the originally mapped locate line. This is the demo's reveal.\", \"widget\":\"slider\", \"min\":10, \"max\":150, \"step\":1}"
+    - '// @input float pipeDiameterCm = 10 {"hint":"True pipe diameter, cm. The corridor collapses to this width when confirmed.", "widget":"slider", "min":2, "max":30, "step":1}'
+    - "// @input float correctedToleranceCm = 15 {\"hint\":\"Narrowed tolerance (radius, cm) stored for the next crew's corrected corridor/ring.\", \"widget\":\"slider\", \"min\":5, \"max\":50, \"step\":1}"
+    - '// @input float tweenDurationSec = 1.2 {"hint":"Duration of the snap animation (confirm -> corridor collapses onto the true pipe), seconds.", "widget":"slider", "min":0.3, "max":3, "step":0.1}'
+    - '// @ui {"widget":"group_end"}'
