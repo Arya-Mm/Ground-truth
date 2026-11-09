@@ -30,8 +30,8 @@ const RING_SEGMENTS = 24;
 // Cheap bloom substitute (no real blur/post-effect pass): an oversized, faint,
 // Add-blended duplicate of the outermost corridor layer / ring, so bright edges bleed
 // a little into their surroundings instead of cutting off sharply.
-const HALO_WIDTH_MUL = 1.22;
-const HALO_ALPHA = 0.07;
+const HALO_WIDTH_MUL = 1.04;
+const HALO_ALPHA = 0.03;
 const HALO_RING_THICKNESS_CM = 9;
 const HALO_RING_ALPHA = 0.3;
 // Ground-surface decals (line mark, ring) must clear the dirt patch's top face.
