@@ -1,0 +1,125 @@
+- !<AssetImportMetadata/fc826045-5c3a-41d6-bdd5-502532126ec6>
+  ImportedAssetIds:
+    17431f13-efd5-4b11-7582-615495b97bb2: !<reference> 91198f10-9aec-46b9-9cab-89bab6daa70d
+    17431f13-efd5-4b11-8a7d-9eab6a46844d: !<reference> b2229f80-5584-4417-99bc-7ff26e5504b8
+    eb8fa3f6-1a7a-4364-b721-cb3d5bc505c4: !<reference> 8c3997eb-18e6-457c-9909-8fe80ba6a4f5
+    b35dfacf-2be7-4006-ab09-9f0ef556da18: !<reference> b8a600f3-30ac-43ca-9b79-020bedb54c4c
+    29091811-e792-46be-bfa4-28ddec5f11be: !<reference> a50d6ff2-1f25-4c55-9d85-6de427ff415f
+    77aed826-f8ce-42e1-698b-80998ccc5c43: !<reference> 52733260-a205-4a4c-916f-9be10996681d
+    2d201112-665f-46c1-8840-766465f39ce8: !<reference> a856df6b-28f2-4ba7-a217-195fa6954684
+    1759dfb0-48c4-4b6f-5685-5074ab3d498d: !<reference> 3df3cf9c-532e-40bb-ae95-a9f2cfa49e59
+    9c10d09f-bcd5-4004-bf6e-3488f44c8a0c: !<reference> 488f8f99-fa6a-4523-b5a7-c39747744706
+    729c7428-a77e-46aa-8782-6f8fcc883fd9: !<reference> a5e44a1d-8da6-4e1e-8277-a70c01a72e5f
+    7d442be1-54e6-4b69-9a3f-e90d58bc971f: !<reference> 7bb00f94-2385-4632-ba9c-50d99ca6367d
+    7b9e19f3-2156-457e-b463-36bf57362e30: !<reference> c8b3aa4c-8b76-4bf9-82cb-50b929981f3d
+    91bab615-3d74-4371-85fd-1f4856835df4: !<reference> 682302a4-7305-4186-90aa-d08db6dc0d0c
+    7b9e19f3-2156-457e-4b9c-c940a8c9d1cf: !<reference> c3db6f7e-48d8-4542-ae85-6e2b2c540ccc
+    94470c36-a82c-4229-9787-2656ae69bc2d: !<reference> acbe532d-6e49-4dbf-aea5-97896a473e47
+    e995c9a2-2659-4edc-7b71-b37672d08122: !<reference> 88c8415c-85a1-468a-8715-a86349bea01b
+    fefb3f1c-d355-4f7a-85e0-c3d3e91fc470: !<reference> 4a059ba6-4f8c-4ce2-97e4-43fefdca0c9b
+    dda092f8-a3e1-48cc-99e5-e3fbb2e605e0: !<reference> 05c5f86d-8fed-468d-a284-8af8c0ac1d91
+    92bc38bd-a2b4-4667-7dbe-157d6754a9e7: !<reference> c6b4e37a-7d24-4771-8544-d1aa60efaca0
+    fefb3f1c-d355-4f7a-7a1f-3c2c16e03b8f: !<reference> 9d0a4bcf-a06d-4c4f-aff0-bb047f89e961
+    4f0ce1a6-6da5-4f1b-871e-6c8f593a073e: !<reference> 626520c5-25af-45df-b5f7-e58126f05eec
+    8b6187a7-40a2-4a6a-a586-7827b288ad98: !<reference> 6988a633-3736-4097-889b-a8a26b7bb7f0
+    e619eeb4-97e5-453e-604b-edf2b24d785e: !<reference> db872dad-8927-4f2d-9331-f7ec2482bebb
+    cea90bc2-b4e7-41ee-92c3-456ca4020f3f: !<reference> 127a9804-486b-4f0f-b027-fccad8de401a
+    6c9c1235-5021-497f-ba17-7c679a9cbaa9: !<reference> dc279266-a60f-47f9-a4b4-629976937dfc
+    2c642a1e-d3d9-4b89-7da1-ff96c2a75d9e: !<reference> 8d1969ff-9d9e-4b67-95e7-1f343aa01546
+    62aa32eb-8c71-4198-7300-7d780a1b8b94: !<reference> 3dcf8e7f-5d93-4df5-a74d-48fe9719e820
+    06642dd8-a2dd-45a4-61b6-1488eee21a92: !<reference> a3484390-e570-4e4b-a037-636aafccae1e
+    304addac-1f01-4ab1-bdd1-41d68cbd69b6: !<reference> dc52f583-a96c-457f-a851-faa33562e2cf
+    2671ea72-1350-46c3-5c56-b74a130728d5: !<reference> a6cf5495-7208-499d-acfc-57d6eda61a0a
+    30942e0a-122a-41b3-79e3-35ae866f8502: !<reference> 1df7f774-36b7-4d0f-be1c-372421ca5601
+    dee3f2f2-acea-4f93-4702-dddcae5cacdc: !<reference> d80b1f13-72c4-4f14-be95-7462d703f38c
+    ab3d6036-4e5b-4e02-5eb5-02bb498b2dd5: !<reference> 7d99b781-c85c-4740-9c69-57a9c6515c5f
+    610026f9-2225-4a97-4ebe-6a34f62c81ac: !<reference> dcce8593-2437-4b23-8e6f-5873cdb49d8f
+    41a8d62b-48a2-46f3-9701-678c24257626: !<reference> 7cbbbb41-c098-4ff9-8e14-6caeb37ab559
+    41a8d62b-48a2-46f3-68fe-9873dbda89d9: !<reference> 6af856f3-b102-4585-b2fb-8557e071c1d5
+    b53f72be-8dbb-4f3b-739f-c390a4b7e1ed: !<reference> 2f9c0485-dde8-4e9f-9e98-e5a83b2ee81f
+    00f01f8c-8201-48a3-6a22-cfcda589cd1c: !<reference> 26457dd5-b556-428e-94b9-28d48ebe0e51
+    00f01f8c-8201-48a3-95dd-30325a7632e3: !<reference> 8f1d8335-16e2-4204-b113-8e95e132b61c
+    91bab615-3d74-4371-7a02-e0b7a97ca20b: !<reference> 6d90e7f9-852e-40d5-a275-58357f764741
+    09bdf2ba-960f-4aa6-774e-a28c78c3e2d7: !<reference> e69aa105-5f83-4326-b729-d3c4b61bbaf1
+    7d442be1-54e6-4b69-65c0-16f2a74368e0: !<reference> f9bfe693-3df3-4829-ab20-e8d8bdde0e4c
+    8b2becc1-66e2-4669-86c2-c16ab206b910: !<reference> cffe297d-3bda-4196-a3cf-31e0e4df9c7b
+    e995c9a2-2659-4edc-848e-4c898d2f7edd: !<reference> 4bd8e7ae-42e3-40d9-a571-e9cdb4d18b8d
+    021e3e47-2a44-410b-7fe7-fa9884d368ba: !<reference> c06d56d5-e5f8-4f65-91b3-c84d0866140a
+    96e42064-44c2-429f-5f89-abb7ba05351a: !<reference> eccf2715-de06-4176-be85-2541630b9f7c
+    06f1a598-7d7a-4d7a-bea5-d81bba5151a1: !<reference> 096aef29-2d41-4946-b25d-1ba3104c5e4b
+    96e42064-44c2-429f-a076-544845facae5: !<reference> ac11fafa-5578-4d8e-a7a8-8fd220795182
+    06f1a598-7d7a-4d7a-415a-27e445aeae5e: !<reference> 08ab905f-ad57-4d4b-8993-3c54cfa6d7da
+    e26218f2-4f0f-4ff2-9d09-4221b93bfba1: !<reference> 0f5b112f-b88c-4d91-8232-b5bec8887991
+    dda092f8-a3e1-48cc-661a-1c044d19fa1f: !<reference> adf00c69-9ca8-41f1-b1f6-5cbd078e15b0
+    41b681a4-3ba9-4155-4ec9-804d283649b5: !<reference> d9cf2bcb-7475-4b38-a2e0-7a7b1dc39ab5
+    d17b27c2-c265-4684-7d9f-5dedae7f4e11: !<reference> 7f197dbd-c08a-4bcf-8e01-ba74449163fc
+    e1a9b23f-f5bc-4448-4106-fb9dbf228b1e: !<reference> 178c70f7-7106-4e6a-b7de-2d7f716942a7
+    d33c154a-9cb5-4b90-66ad-cbf48f0e2a6b: !<reference> 627f6b31-f0af-4d08-8a09-b74db94c1cdc
+    0002804d-2fb6-4cee-8181-81ff9f044e27: !<reference> 3620f89a-1c15-409a-92a5-db3710013aa1
+    e619eeb4-97e5-453e-9fb4-120d4db287a1: !<reference> 5ff5ceb6-95d2-4952-bc80-197af4b43107
+    3aedbdee-9588-41ed-8d63-c478c55bbfea: !<reference> 6b92c93b-5101-4a1d-a0ac-624d6821e809
+    b53f72be-8dbb-4f3b-8c60-3c6f5b481e12: !<reference> b23c1b45-c437-4134-b9e6-d7a60eec1705
+    62aa32eb-8c71-4198-8cff-8287f5e4746b: !<reference> f458595b-30ef-42a5-91e5-b9b19dfd5c3c
+    2c642a1e-d3d9-4b89-825e-00693d58a261: !<reference> 3ef92c09-8f53-43dc-b417-e32513949430
+    09bdf2ba-960f-4aa6-88b1-5d73873c1d28: !<reference> 0e2046f3-a2d7-4efb-bc22-b74fae40ad51
+    06642dd8-a2dd-45a4-9e49-eb77111de56d: !<reference> d3d1cd0d-edc0-4584-951b-8e18f87a473b
+    30942e0a-122a-41b3-861c-ca5179907afd: !<reference> 8dceae01-f2ee-4178-8d66-ed9ac24be03a
+    dee3f2f2-acea-4f93-b8fd-222351a35323: !<reference> 66b50a31-8a36-41a6-bfdd-79d14b6b084b
+    92bc38bd-a2b4-4667-8241-ea8298ab5618: !<reference> 09ee1710-0d9f-4e81-9f7f-36324095552e
+    2671ea72-1350-46c3-a3a9-48b5ecf8d72a: !<reference> 23fa71e4-1f1b-494c-9af2-23a005ecc02b
+    610026f9-2225-4a97-b141-95cb09d37e53: !<reference> 8358dee1-55d7-4273-9305-e2787e195de2
+    77aed826-f8ce-42e1-9674-7f667333a3bc: !<reference> eae58cd7-0198-4f5b-92d1-333c0535fb1f
+    41b681a4-3ba9-4155-b136-7fb2d7c9b64a: !<reference> bfd037f5-8eea-414a-b790-0f54b23f1409
+    021e3e47-2a44-410b-8018-05677b2c9745: !<reference> 5da7b0c6-265e-4d5c-a03e-0e64f9a822a3
+    ab3d6036-4e5b-4e02-a14a-fd44b674d22a: !<reference> aebb7734-ac57-432b-975b-565578bc41ac
+    d17b27c2-c265-4684-8260-a2125180b1ee: !<reference> 7a2bcd45-7203-46f4-84e9-d01da6d342b1
+    e1a9b23f-f5bc-4448-bef9-046240dd74e1: !<reference> ceef56c5-79ac-498c-929b-34b9f68c06a7
+    1759dfb0-48c4-4b6f-a97a-af8b54c2b672: !<reference> 248ec952-f322-40a9-9b98-729c755e64aa
+    d33c154a-9cb5-4b90-9952-340b70f1d594: !<reference> 1af4ed5e-28e1-4ce0-af68-7a7966fbbf84
+    432d2049-ceff-47c8-8608-db8f1e2d27e8: !<reference> 09961463-b18e-4351-9cdf-36682bc2966d
+    f7f4ab01-7a42-419e-aa64-415abbd799cb: !<reference> b69549ee-040d-47fd-8a97-c87399d528bf
+    6ecd86eb-31c5-4611-b738-683109af505a: !<reference> 92b0aa10-d0ad-4550-9ba8-e0ffa9ef5c13
+    3925587d-c98b-4fbd-b29e-90ab76d3ea3c: !<reference> f4738f1f-ce6d-4743-b1b5-0d54e5c50263
+    f7a8212d-5f45-45e9-9ab8-a9764fddfb08: !<reference> 2abe3029-6770-40bf-b474-78ae7e35470c
+    caf62936-9713-4dfe-b9ee-cc29dfe4a72d: !<reference> 1314fa26-764b-4078-a63f-f011270227d3
+    7f5922a7-5d61-4e6f-a62e-f7e5a8d94e80: !<reference> f042c399-c054-4430-840e-279c9fddbf4c
+    2a8b58ff-a17e-477a-b095-0e0feae395c3: !<reference> 1e162ddf-6596-4936-96b6-dd6562758cbd
+    7b8f6b9f-7891-4cd7-a44e-f7982f8bfa98: !<reference> 5104de77-6fce-4846-8dd0-e81e42f27682
+    89cc070e-e7d2-43a8-b785-f2b988243cc3: !<reference> 9a727eff-d3f0-4e0e-b0c7-4ecada5131f6
+    6832aefa-c7cd-4567-a64b-0163b86b0aca: !<reference> 9aecf703-f430-4758-8d5b-c2c7eee3fe53
+    2ae35a03-3b26-4992-9e3c-04f9d8d00e26: !<reference> 895adc6d-c6be-4b64-832f-300147f74a25
+    9fa2408b-5d69-453e-b19f-07f4553d959d: !<reference> ffef9c38-2bd6-4cd3-a1c6-dcfef4107029
+    2d29c536-0b42-47d6-97f9-44e5dd8edfde: !<reference> dd0690a7-8505-4431-802b-740022ae2dc2
+    2c40be77-a577-4129-b9f0-a5cc70892be7: !<reference> 75d191ac-6ced-493c-9857-11eb119bcd3b
+    eae87587-8536-4a24-ba2d-65515ac51f35: !<reference> 3d75fa3e-e790-44f3-b699-448401f2dd0b
+    5a0a8e20-071a-41e3-8939-a5ce0da60cbb: !<reference> 22b1b8da-379b-4e6d-a4e1-106f21e1c146
+    c7c419f7-69e9-4525-8808-c3df34bfd84a: !<reference> ddca3987-c40a-4c21-97ae-c01f01da40a4
+    c1b7cd1f-0899-4a55-8a56-2712014d9c9b: !<reference> 3339f9f5-da71-4880-b40b-dc883561946e
+    73cfb5a3-e91d-4028-9582-a07feb836045: !<reference> 951fe7f1-eecb-47dc-99bb-f02409dadbbe
+    0218717c-732f-43ef-a466-03102cc09b76: !<reference> dc45e58c-9311-4199-8efc-cf1d0a970a28
+    d09586c7-7836-4e4a-b313-5dc0b37856d6: !<reference> 654a3491-f729-44ac-9619-a7ce6f533994
+    90f26a75-3640-44c3-bf3a-f06d5818b4a4: !<reference> 60119a85-5b04-49be-9a32-c713da74fc82
+    7c9bb114-af03-47f2-98f1-2ada2729b89e: !<reference> 4ab6066e-80ca-41da-ab23-86894ab0dfa8
+    f17be175-20a9-4ba6-98db-6843251fca44: !<reference> 6dd79170-cb99-4d50-81d3-074d34a8f5f8
+    427945d7-1818-4980-a2b8-b06fa79d8650: !<reference> f3b8b1ba-0e85-4154-a3cb-138a3c15ecdc
+    aaa490d2-430d-46a6-84bf-5a552e6471be: !<reference> 30adaf32-afc8-41b8-a367-96ac278dcee9
+    3960d294-c601-4b2e-b6a0-6ff262c7c197: !<reference> c5638564-9d10-4be6-8594-c116f9010326
+    58ed2be2-cd6d-484f-9adf-32fa88eb97b0: !<reference> d0909f9f-80ff-4984-944c-9efc09927bda
+    a738c53c-03e1-4563-9262-cdbd892a3915: !<reference> e7cb6c87-51b2-44cb-8e49-47b6b751eaf4
+    b9d1daaf-017a-4721-8443-2aee3d46fd9b: !<reference> a6b0c2fb-ff30-45b2-8e1b-08796e940c4a
+    7e66c972-00d6-4207-bc88-d04fbba61bef: !<reference> 92c2d758-3556-495c-85a9-950d18afcdea
+    850f18c7-4283-45fe-b6f5-33aab72cf1a0: !<reference> c5db4d17-b921-4a10-8acf-e21f83182f2a
+    073db115-e6c3-4329-af18-d254ece7987f: !<reference> b76bb1e6-1c7d-42bb-976a-bca161dd7ad0
+  ImporterName: NativePackageImporter
+  PrimaryAsset: !<reference> 92c2d758-3556-495c-85a9-950d18afcdea
+  PackageType: PackedNativePackageRoot
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    {}
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000

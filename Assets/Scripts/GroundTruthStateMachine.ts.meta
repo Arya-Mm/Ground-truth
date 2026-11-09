@@ -1,0 +1,86 @@
+- !<AssetImportMetadata/7c3b9e39-2c71-44b7-b712-f0c440f7fa03>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 844fb839-c290-4a2e-938a-18ebf2e2420e
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 844fb839-c290-4a2e-938a-18ebf2e2420e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 50756aae-1a62-43f5-aff4-4d6a06ed9653
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/50756aae-1a62-43f5-aff4-4d6a06ed9653>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 064478a3-52d4-4173-8963-a7d2eb6ebfda
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    debugState: false
+    electricCorridor: false
+    gasCorridor: false
+    groundRoot: false
+    nextCrew: false
+    pothole: false
+    ringProximity: false
+    snapAnim: false
+    sweepDurationSec: false
+    sweepEndLocalZCm: false
+    sweepStartLocalZCm: false
+    telecomCorridor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - gasCorridor: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      electricCorridor: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      telecomCorridor: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      ringProximity: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      pothole: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      snapAnim: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+      nextCrew: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
+      groundRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      sweepDurationSec: 2.500000
+      sweepStartLocalZCm: !<float> -150.000000
+      sweepEndLocalZCm: !<float> -450.000000
+      debugState: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">GroundTruthStateMachine - ACQUIRE/APPROACH/POTHOLE/VERIFY/LOG/NEXT_CREW</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - // @input AssignableType_1 gasCorridor
+    - // @input AssignableType_2 electricCorridor
+    - // @input AssignableType_3 telecomCorridor
+    - // @input AssignableType_4 ringProximity
+    - // @input AssignableType_5 pothole
+    - // @input AssignableType_6 snapAnim
+    - // @input AssignableType_7 nextCrew
+    - // @input SceneObject groundRoot
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float sweepDurationSec = 2.5 {"hint":"Duration of the one-time ACQUIRE scan-sweep, seconds.", "widget":"slider", "min":0.5, "max":6, "step":0.1}'
+    - '// @input float sweepStartLocalZCm = -150 {"hint":"Local Z (relative to groundRoot) the sweep starts at — the near edge of the dirt patch.", "widget":"slider", "min":-500, "max":500, "step":1}'
+    - '// @input float sweepEndLocalZCm = -450 {"hint":"Local Z (relative to groundRoot) the sweep ends at — the far edge of the dirt patch.", "widget":"slider", "min":-500, "max":500, "step":1}'
+    - '// @input bool debugState {"hint":"Prints every state transition to the console. Debug-only; no effect on behavior."}'
+    - '// @ui {"widget":"group_end"}'

@@ -1,0 +1,74 @@
+- !<AssetImportMetadata/39991c7c-2582-4ab6-a087-c7a22764de96>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1008837e-3f17-4855-8523-c613b8afd296
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1008837e-3f17-4855-8523-c613b8afd296
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 1310e6a6-1d4f-4f24-b6e8-66f9f448ffbd
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/1310e6a6-1d4f-4f24-b6e8-66f9f448ffbd>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 92f1d8fc-e2fc-4daa-92d7-ede375707bab
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    electricCorridor: false
+    envelopeToleranceMul: false
+    gasCorridor: false
+    groundRoot: false
+    nextCrewTargetLocalZCm: false
+    pothole: false
+    snapAnim: false
+    telecomCorridor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - gasCorridor: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      electricCorridor: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      telecomCorridor: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      pothole: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      snapAnim: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      groundRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      envelopeToleranceMul: !<float> 2.000000
+      nextCrewTargetLocalZCm: !<float> -160.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">GroundTruthNextCrewController - LOG stamp/envelope/correction + NEXT_CREW reset loop</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - // @input AssignableType_1 gasCorridor
+    - // @input AssignableType_2 electricCorridor
+    - // @input AssignableType_3 telecomCorridor
+    - // @input AssignableType_4 pothole
+    - // @input AssignableType_5 snapAnim
+    - // @input SceneObject groundRoot
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float envelopeToleranceMul = 2 {"hint":"Safe-clearance envelope radius as a multiple of the corrected tolerance (envelope is drawn wider than the tight corrected ring).", "widget":"slider", "min":1.5, "max":4, "step":0.1}'
+    - "// @input float nextCrewTargetLocalZCm = -160 {\"hint\":\"Local Z, relative to the ground anchor, of the 'Next crew arrives' pinch target (near edge of the dirt patch).\", \"widget\":\"slider\", \"min\":-200, \"max\":0, \"step\":1}"
+    - '// @ui {"widget":"group_end"}'

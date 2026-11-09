@@ -1,0 +1,74 @@
+- !<AssetImportMetadata/655e4825-173a-4828-a4ad-f58fda44308c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 894d5bd9-35fb-4ba5-8b8a-ce9aab3b7276
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 894d5bd9-35fb-4ba5-8b8a-ce9aab3b7276
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 952b0f7e-3a91-4ef5-80ce-5adb3965a08a
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/952b0f7e-3a91-4ef5-80ce-5adb3965a08a>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: a626389b-602a-4b16-927f-a978325529cf
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    baseColor: false
+    depthCm: false
+    groundRoot: false
+    lineHalfLengthCm: false
+    lineLocalZCm: false
+    proximityFadeDistanceM: false
+    toleranceCm: false
+    utilityName: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - groundRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      utilityName: Gas
+      baseColor: !<Vec4> {x: 1.000000, y: 0.850000, z: 0.000000, w: 1.000000}
+      toleranceCm: !<float> 50.000000
+      depthCm: !<float> 90.000000
+      lineHalfLengthCm: !<float> 140.000000
+      lineLocalZCm: !<float> -200.000000
+      proximityFadeDistanceM: !<float> 2.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - "// @ui {\"widget\":\"label\", \"label\":\"<span style=\\\"color: #60A5FA;\\\">GroundTruthCorridorController - one utility's corridor + ring + label</span>\"}"
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input SceneObject groundRoot {"hint":"Authored ground anchor SceneObject this corridor/ring/label are built under."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - "// @input string utilityName = \"Gas\" {\"hint\":\"Display name used in the world label, e.g. 'Gas'.\"}"
+    - '// @input vec4 baseColor = "1.0, 0.85, 0.0, 1.0" {"hint":"APWA locate-mark color for this utility (yellow=gas, red=electric, orange=telecom).", "widget":"color"}'
+    - '// @input float toleranceCm = 50 {"hint":"Locate tolerance each side of the mapped line, in cm. Ring radius and corridor half-width both derive from this.", "widget":"slider", "min":10, "max":150, "step":1}'
+    - '// @input float depthCm = 90 {"hint":"Depth of this utility below the ground surface, in cm.", "widget":"slider", "min":10, "max":150, "step":1}'
+    - '// @input float lineHalfLengthCm = 140 {"hint":"Half-length of the painted locate line / corridor along local X, in cm.", "widget":"slider", "min":20, "max":250, "step":1}'
+    - "// @input float lineLocalZCm = -200 {\"hint\":\"Local Z offset of this utility's line from the ground anchor, in cm.\", \"widget\":\"slider\", \"min\":-500, \"max\":500, \"step\":1}"
+    - "// @input float proximityFadeDistanceM = 2 {\"hint\":\"Distance from the camera (meters) within which the corridor/ring/label show at full strength; beyond this they fade to a faint 'distant' state.\", \"widget\":\"slider\", \"min\":0.5, \"max\":5, \"step\":0.1}"
+    - '// @ui {"widget":"group_end"}'
