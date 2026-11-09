@@ -4,6 +4,10 @@
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> f5d74682-203a-4970-81ea-9fa7b88c96bb
+    - !<own> 1d1c3e5a-4998-4028-9f76-185ece1ad01d
+    - !<own> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+    - !<own> 81b2872f-b7ea-43e0-8f6e-abbd7b43dad6
+    - !<own> 4b2f8f1a-f912-48cb-976d-d8e7e2b906ef
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -236,6 +240,22 @@
     []
   Components:
     []
+- !<SceneObject/057c30d4-dc19-4bf8-9613-320f63a36614>
+  PrefabRemaps:
+    []
+  Name: ExcavatorBucket
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 150.000000, y: 10.000000, z: -180.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 30.000000, y: 20.000000, z: 40.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c599bfc6-ad9a-4681-9986-49c8f9ebe360
+    - !<own> 4a6cdd50-3cbb-479d-ad5c-7b02e1fbfd9b
 - !<ScriptComponent/0847d2bb-a13f-4c4a-a404-169f67308f6f>
   PrefabRemaps:
     []
@@ -483,6 +503,23 @@
   ScriptTypes:
     "":
       {}
+- !<AudioComponent/1225abd9-c627-43f5-8d34-e9d9d0f8a243>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> ab32e851-e6ff-4c84-8895-d1d062aedd55
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/126f3577-bc27-4a20-8d6e-a511bc459c49>
   PrefabRemaps:
     []
@@ -496,6 +533,22 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> a6af4948-9adc-4052-ae22-db902dd2764e
+  Components:
+    []
+- !<SceneObject/1819f997-2ee7-4828-80e4-e04aa4a1ce44>
+  PrefabRemaps:
+    []
+  Name: GroundTruthWorld
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -148.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 8df2970d-bc2e-443b-8ac8-4f15b60a76b8
+    - !<own> 057c30d4-dc19-4bf8-9613-320f63a36614
   Components:
     []
 - !<SceneObject/181c239f-175e-4912-94fc-d37a2599b2d6>
@@ -513,6 +566,45 @@
     []
   Components:
     []
+- !<SceneObject/1d1c3e5a-4998-4028-9f76-185ece1ad01d>
+  PrefabRemaps:
+    []
+  Name: GroundTruthMain
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3134ab7e-583d-4337-ac61-3612334d987e
+- !<ScriptComponent/1eaeb381-862e-4b1f-a94f-bd08599c0143>
+  PrefabRemaps:
+    []
+  Name: GroundTruthNextCrewController
+  Enabled: true
+  ScriptAsset: !<reference> 1008837e-3f17-4855-8523-c613b8afd296
+  ScriptInputsDefault:
+    envelopeToleranceMul: true
+    nextCrewTargetLocalZCm: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      gasCorridor: !<MappingBased.AssignableType_1> bfcb5afe-058d-4ebb-83c7-357e960c4e71
+      electricCorridor: !<MappingBased.AssignableType_2> 4aed4288-fbe8-4d9e-9d60-b7ff262f50e3
+      telecomCorridor: !<MappingBased.AssignableType_3> e90252cb-777e-48c8-bcf1-14bbe9878ca6
+      pothole: !<MappingBased.AssignableType_4> 69940757-886a-42f3-bee8-7db759c97802
+      snapAnim: !<MappingBased.AssignableType_5> df90cfd1-d3ba-46b0-8699-2283c92974b5
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      envelopeToleranceMul: !<float> 2.000000
+      nextCrewTargetLocalZCm: !<float> -160.000000
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/1f969daa-5809-4500-b314-98d91ccba131>
   PrefabRemaps:
     []
@@ -710,6 +802,36 @@
     - !<own> a7da4af4-3d84-4acd-a31e-920a56b4c5c8
   Components:
     []
+- !<ScriptComponent/3134ab7e-583d-4337-ac61-3612334d987e>
+  PrefabRemaps:
+    []
+  Name: GroundTruthStateMachine
+  Enabled: true
+  ScriptAsset: !<reference> 844fb839-c290-4a2e-938a-18ebf2e2420e
+  ScriptInputsDefault:
+    sweepDurationSec: true
+    sweepStartLocalZCm: true
+    sweepEndLocalZCm: true
+    debugState: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      gasCorridor: !<MappingBased.AssignableType_1> bfcb5afe-058d-4ebb-83c7-357e960c4e71
+      electricCorridor: !<MappingBased.AssignableType_2> 4aed4288-fbe8-4d9e-9d60-b7ff262f50e3
+      telecomCorridor: !<MappingBased.AssignableType_3> e90252cb-777e-48c8-bcf1-14bbe9878ca6
+      ringProximity: !<MappingBased.AssignableType_4> 912f4eea-d3d3-4d9f-839f-b4a25a866d9b
+      pothole: !<MappingBased.AssignableType_5> 69940757-886a-42f3-bee8-7db759c97802
+      snapAnim: !<MappingBased.AssignableType_6> df90cfd1-d3ba-46b0-8699-2283c92974b5
+      nextCrew: !<MappingBased.AssignableType_7> 1eaeb381-862e-4b1f-a94f-bd08599c0143
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      sweepDurationSec: 2.500000
+      sweepStartLocalZCm: !<float> -150.000000
+      sweepEndLocalZCm: !<float> -450.000000
+      debugState: false
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/335c5f8b-2917-49e8-8af5-220696e9bc09>
   PrefabRemaps:
     []
@@ -916,6 +1038,62 @@
     - !<own> 8fe2a532-9bf3-4cde-b598-04ce5470718d
   Components:
     []
+- !<ScriptComponent/4a6cdd50-3cbb-479d-ad5c-7b02e1fbfd9b>
+  PrefabRemaps:
+    []
+  Name: DragInteraction
+  Enabled: true
+  ScriptAsset: !<reference> 37f36919-98f0-4b34-b548-9bdd8c930afa
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/4aed4288-fbe8-4d9e-9d60-b7ff262f50e3>
+  PrefabRemaps:
+    []
+  Name: GroundTruthCorridorController
+  Enabled: true
+  ScriptAsset: !<reference> 894d5bd9-35fb-4ba5-8b8a-ce9aab3b7276
+  ScriptInputsDefault:
+    toleranceCm: true
+    lineHalfLengthCm: true
+    proximityFadeDistanceM: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      utilityName: Electric
+      baseColor: !<Vec4> {x: 0.900000, y: 0.100000, z: 0.100000, w: 1.000000}
+      toleranceCm: !<float> 50.000000
+      depthCm: !<float> 60.000000
+      lineHalfLengthCm: !<float> 140.000000
+      lineLocalZCm: !<float> -300.000000
+      proximityFadeDistanceM: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/4b2f8f1a-f912-48cb-976d-d8e7e2b906ef>
+  PrefabRemaps:
+    []
+  Name: AiPreviewAgent Handler
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 97a1cc11-f5c6-43b4-a9dd-35d6ce1c1bb1
 - !<SceneObject/4c195c04-c397-454e-bd08-3485f37d84fe>
   PrefabRemaps:
     []
@@ -1141,6 +1319,26 @@
     - !<own> 80574bd1-697b-4bb5-b9ce-13b340146d82
   Components:
     - !<own> ccf4d3bc-d3c2-4580-b9c5-62f164ef7eef
+- !<ScriptComponent/69940757-886a-42f3-bee8-7db759c97802>
+  PrefabRemaps:
+    []
+  Name: GroundTruthPotholeController
+  Enabled: true
+  ScriptAsset: !<reference> 05502510-203e-4e5c-bd8a-9131722b7f52
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      gasCorridor: !<MappingBased.AssignableType_1> bfcb5afe-058d-4ebb-83c7-357e960c4e71
+      ringProximity: !<MappingBased.AssignableType_2> 912f4eea-d3d3-4d9f-839f-b4a25a866d9b
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      strokeDipThresholdCm: !<float> 3.000000
+      strokeDeepenCm: !<float> 10.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/6a7a67db-5675-49bb-8f31-ba0588e3cffc>
   PrefabRemaps:
     []
@@ -1186,6 +1384,21 @@
     - !<own> ca40734c-262f-48d3-affa-9f99cd2940f7
   Components:
     []
+- !<SceneObject/6bfa5a0c-8729-44a7-b25d-2ba2d2b235e2>
+  PrefabRemaps:
+    []
+  Name: SnapAnim
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> df90cfd1-d3ba-46b0-8699-2283c92974b5
 - !<SceneObject/6c1f70d7-86d0-4972-b203-29780f8798e6>
   PrefabRemaps:
     []
@@ -1216,6 +1429,21 @@
     - !<own> 4c195c04-c397-454e-bd08-3485f37d84fe
   Components:
     []
+- !<SceneObject/6e5e58f2-f50f-4d22-865e-024641116914>
+  PrefabRemaps:
+    []
+  Name: NextCrew
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1eaeb381-862e-4b1f-a94f-bd08599c0143
 - !<SceneObject/7037a633-4899-4f2e-bc97-2e3f35395687>
   PrefabRemaps:
     []
@@ -1400,6 +1628,27 @@
     []
   Components:
     - !<own> 335c5f8b-2917-49e8-8af5-220696e9bc09
+- !<SceneObject/81b2872f-b7ea-43e0-8f6e-abbd7b43dad6>
+  PrefabRemaps:
+    []
+  Name: GroundTruthControllers
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> fb4f96e2-3158-4bcc-b02e-9049d2cc8fac
+    - !<own> 9b810e19-b840-4df1-9b0f-8e541da35172
+    - !<own> cecbd645-71d1-45a5-94d5-6b048f68e484
+    - !<own> f075ccdb-b577-4adf-b65f-2bf753010a05
+    - !<own> bfb98b68-2717-4dcc-9f33-acdab4dabfb6
+    - !<own> 6bfa5a0c-8729-44a7-b25d-2ba2d2b235e2
+    - !<own> 6e5e58f2-f50f-4d22-865e-024641116914
+  Components:
+    []
 - !<SceneObject/82a4b4e8-283b-441c-8b94-9fdc50c958f2>
   PrefabRemaps:
     []
@@ -1531,6 +1780,21 @@
     - !<own> b859e31c-4c76-46bd-bd6a-042228e52728
   Components:
     []
+- !<SceneObject/8df2970d-bc2e-443b-8ac8-4f15b60a76b8>
+  PrefabRemaps:
+    []
+  Name: DirtPatch
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -300.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 400.000000, y: 2.000000, z: 300.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ae062dca-18ad-44e8-b361-f26031d7eb57
 - !<SceneObject/8fe2a532-9bf3-4cde-b598-04ce5470718d>
   PrefabRemaps:
     []
@@ -1546,6 +1810,25 @@
     - !<own> 8cb3dd13-6ebf-41e6-9a23-94a69dd96f87
   Components:
     []
+- !<ScriptComponent/912f4eea-d3d3-4d9f-839f-b4a25a866d9b>
+  PrefabRemaps:
+    []
+  Name: GroundTruthRingProximityController
+  Enabled: true
+  ScriptAsset: !<reference> c3f132c4-d154-4a5e-88c9-49948a4f8f6e
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      gasCorridor: !<MappingBased.AssignableType_1> bfcb5afe-058d-4ebb-83c7-357e960c4e71
+      bucket: !<reference.SceneObject> 057c30d4-dc19-4bf8-9613-320f63a36614
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      warningSfx: !<reference.AudioComponent> 1225abd9-c627-43f5-8d34-e9d9d0f8a243
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/9468c53c-f76f-49b7-8a49-b5ec6af1c5a3>
   PrefabRemaps:
     []
@@ -1562,6 +1845,22 @@
     - !<own> e9454e66-5d09-4a8a-bcd7-dea762326a48
   Components:
     []
+- !<ScriptComponent/97a1cc11-f5c6-43b4-a9dd-35d6ce1c1bb1>
+  PrefabRemaps:
+    []
+  Name: AgentInspectScript
+  Enabled: true
+  ScriptAsset: !<reference> 0b25079c-f5bf-4c6d-96c4-f43b89dfa213
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/988c408a-99dc-47e6-b7c4-efbf4bf8dc3c>
   PrefabRemaps:
     []
@@ -1577,6 +1876,21 @@
     - !<own> a4de4ce7-f468-4966-8a06-e29eea60c023
   Components:
     []
+- !<SceneObject/9b810e19-b840-4df1-9b0f-8e541da35172>
+  PrefabRemaps:
+    []
+  Name: ElectricCorridor
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4aed4288-fbe8-4d9e-9d60-b7ff262f50e3
 - !<SceneObject/9c3a7929-faa9-4369-a85c-c75a6ab4eee7>
   PrefabRemaps:
     []
@@ -1777,6 +2091,26 @@
     - !<own> f6687ab7-52ac-408d-a892-8a9559125450
   Components:
     []
+- !<RenderMeshVisual/ae062dca-18ad-44e8-b361-f26031d7eb57>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> e7e023ab-f1cd-4e4f-99db-13e99d9cea18
+  Mesh: !<reference> e3e89d4d-4da0-4562-95af-786a14ac8b79
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/b22d97e6-4c06-4135-af29-d26adb2b9d86>
   PrefabRemaps:
     []
@@ -1957,6 +2291,70 @@
     []
   Components:
     []
+- !<SceneObject/bfb98b68-2717-4dcc-9f33-acdab4dabfb6>
+  PrefabRemaps:
+    []
+  Name: Pothole
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 69940757-886a-42f3-bee8-7db759c97802
+- !<ScriptComponent/bfcb5afe-058d-4ebb-83c7-357e960c4e71>
+  PrefabRemaps:
+    []
+  Name: GroundTruthCorridorController
+  Enabled: true
+  ScriptAsset: !<reference> 894d5bd9-35fb-4ba5-8b8a-ce9aab3b7276
+  ScriptInputsDefault:
+    utilityName: true
+    baseColor: true
+    toleranceCm: true
+    depthCm: true
+    lineHalfLengthCm: true
+    lineLocalZCm: true
+    proximityFadeDistanceM: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      utilityName: Gas
+      baseColor: !<Vec4> {x: 1.000000, y: 0.850000, z: 0.000000, w: 1.000000}
+      toleranceCm: !<float> 50.000000
+      depthCm: !<float> 90.000000
+      lineHalfLengthCm: !<float> 140.000000
+      lineLocalZCm: !<float> -200.000000
+      proximityFadeDistanceM: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/c599bfc6-ad9a-4681-9986-49c8f9ebe360>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> f298f0d7-1dfa-4260-8be7-d4abd3240f12
+  Mesh: !<reference> e3e89d4d-4da0-4562-95af-786a14ac8b79
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<ScriptComponent/c8e031d3-a8a1-468a-a419-427f8556de4c>
   PrefabRemaps:
     []
@@ -2085,6 +2483,21 @@
     - !<own> 650dc0b4-8d22-4aab-87b4-d8e56fb59a67
   Components:
     - !<own> 0847d2bb-a13f-4c4a-a404-169f67308f6f
+- !<SceneObject/cecbd645-71d1-45a5-94d5-6b048f68e484>
+  PrefabRemaps:
+    []
+  Name: TelecomCorridor
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e90252cb-777e-48c8-bcf1-14bbe9878ca6
 - !<SceneObject/d08269e3-acd4-4156-b5b9-477ca259611d>
   PrefabRemaps:
     []
@@ -2240,6 +2653,31 @@
     - !<own> d4a9c5e3-fe96-4824-9b20-59f5ad39eabd
   Components:
     []
+- !<ScriptComponent/df90cfd1-d3ba-46b0-8699-2283c92974b5>
+  PrefabRemaps:
+    []
+  Name: GroundTruthSnapAnimationController
+  Enabled: true
+  ScriptAsset: !<reference> fe07e501-ceed-47c4-b45e-2fc0b587fc04
+  ScriptInputsDefault:
+    correctionOffsetCm: true
+    pipeDiameterCm: true
+    correctedToleranceCm: true
+    tweenDurationSec: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      gasCorridor: !<MappingBased.AssignableType_1> bfcb5afe-058d-4ebb-83c7-357e960c4e71
+      pothole: !<MappingBased.AssignableType_2> 69940757-886a-42f3-bee8-7db759c97802
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      correctionOffsetCm: !<float> 70.000000
+      pipeDiameterCm: !<float> 10.000000
+      correctedToleranceCm: !<float> 15.000000
+      tweenDurationSec: 1.200000
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/e1031f7e-3474-489f-a529-282f7192f812>
   PrefabRemaps:
     []
@@ -2315,6 +2753,31 @@
     - !<own> 0f983d21-20bc-4d89-a991-fbb95bacbd64
   Components:
     []
+- !<ScriptComponent/e90252cb-777e-48c8-bcf1-14bbe9878ca6>
+  PrefabRemaps:
+    []
+  Name: GroundTruthCorridorController
+  Enabled: true
+  ScriptAsset: !<reference> 894d5bd9-35fb-4ba5-8b8a-ce9aab3b7276
+  ScriptInputsDefault:
+    toleranceCm: true
+    lineHalfLengthCm: true
+    proximityFadeDistanceM: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      groundRoot: !<reference.SceneObject> 1819f997-2ee7-4828-80e4-e04aa4a1ce44
+      utilityName: Telecom
+      baseColor: !<Vec4> {x: 1.000000, y: 0.450000, z: 0.000000, w: 1.000000}
+      toleranceCm: !<float> 50.000000
+      depthCm: !<float> 40.000000
+      lineHalfLengthCm: !<float> 140.000000
+      lineLocalZCm: !<float> -400.000000
+      proximityFadeDistanceM: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e9454e66-5d09-4a8a-bcd7-dea762326a48>
   PrefabRemaps:
     []
@@ -2368,6 +2831,22 @@
     []
   Components:
     []
+- !<SceneObject/f075ccdb-b577-4adf-b65f-2bf753010a05>
+  PrefabRemaps:
+    []
+  Name: RingProximity
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 912f4eea-d3d3-4d9f-839f-b4a25a866d9b
+    - !<own> 1225abd9-c627-43f5-8d34-e9d9d0f8a243
 - !<SceneObject/f36287fd-ed56-442d-ba20-78f9ef6f3502>
   PrefabRemaps:
     []
@@ -2575,6 +3054,21 @@
     - !<own> a7526b33-fca3-4f28-8e32-b0e9aa13c4b4
   Components:
     []
+- !<SceneObject/fb4f96e2-3158-4bcc-b02e-9049d2cc8fac>
+  PrefabRemaps:
+    []
+  Name: GasCorridor
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> bfcb5afe-058d-4ebb-83c7-357e960c4e71
 - !<SceneObject/fcc185fc-4e88-4e9e-9c71-40bd83b1b0ed>
   PrefabRemaps:
     []

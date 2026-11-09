@@ -24,11 +24,15 @@
   VersionPatch: 0
   VersionPrerelease: ""
   UpdateOrder: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: caf4cceb-084c-4686-9cec-0ab448599dda
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    gasCorridor: false
+    groundRoot: false
+    ringProximity: false
+    strokeDeepenCm: false
+    strokeDipThresholdCm: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -38,10 +42,24 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - gasCorridor: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      ringProximity: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      groundRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      strokeDipThresholdCm: !<float> 0.000000
+      strokeDeepenCm: !<float> 0.000000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">GroundTruthPotholeController - gas-only stroke-counted hand dig</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - // @input AssignableType_1 gasCorridor
+    - // @input AssignableType_2 ringProximity
+    - // @input SceneObject groundRoot
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float strokeDipThresholdCm {"hint":"Minimum vertical dip (cm) of the hand tip, down then up, to count as one completed scoop stroke.", "widget":"slider", "min":1, "max":20, "step":0.5}'
+    - '// @input float strokeDeepenCm {"hint":"Hole depth added per completed stroke, in cm (default 0.1 m).", "widget":"slider", "min":2, "max":30, "step":1}'
+    - '// @ui {"widget":"group_end"}'
