@@ -19,7 +19,12 @@ import { InteractorEvent } from "SpectaclesInteractionKit.lspkg/Core/Interactor/
 const boxMesh = requireAsset("../Meshes/Box.mesh") as RenderMesh;
 const cylinderMesh = requireAsset("../Meshes/Cylinder.mesh") as RenderMesh;
 const coneMesh = requireAsset("../Meshes/Cone.mesh") as RenderMesh;
-const unlitTemplate = requireAsset("../Materials/UnlitTemplate.mat") as Material;
+// Visual-polish pass (2026): swapped from the plain UnlitTemplate to a fresnel rim-glow +
+// shimmer custom-code shader (see Materials/codeNode.graphShader) so every unlit surface
+// built through makeUnlitMaterial (corridor layers, ring, line mark, label backing) reads
+// as one cohesive holographic design language instead of flat tinted shapes. baseColor is
+// still the only script-facing property -- callers' mat.mainPass.baseColor writes are untouched.
+const unlitTemplate = requireAsset("../Materials/GroundTruthGlowUnlit.mat") as Material;
 
 export function getBoxMesh(): RenderMesh {
     return boxMesh;

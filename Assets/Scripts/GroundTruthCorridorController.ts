@@ -27,6 +27,13 @@ import {
 const LAYER_WIDTH_MULS = [1.0, 0.82, 0.62, 0.42, 0.22];
 const LAYER_BASE_ALPHAS = [0.05, 0.09, 0.15, 0.24, 0.38];
 const RING_SEGMENTS = 24;
+// Cheap bloom substitute (no real blur/post-effect pass): an oversized, faint,
+// Add-blended duplicate of the outermost corridor layer / ring, so bright edges bleed
+// a little into their surroundings instead of cutting off sharply.
+const HALO_WIDTH_MUL = 1.22;
+const HALO_ALPHA = 0.07;
+const HALO_RING_THICKNESS_CM = 9;
+const HALO_RING_ALPHA = 0.3;
 // Ground-surface decals (line mark, ring) must clear the dirt patch's top face.
 // shortcut: hardcodes the bootstrap-authored DirtPatch thickness (2cm box, so top face
 // is at local Y=+1 under groundRoot) rather than querying it; if DirtPatch's scale.y
@@ -85,8 +92,11 @@ export class GroundTruthCorridorController extends BaseScriptComponent {
     private corridorRoot: SceneObject | null = null;
     private corridorLayerObjs: SceneObject[] = [];
     private corridorLayerMats: Material[] = [];
+    private corridorHaloObj: SceneObject | null = null;
+    private corridorHaloMat: Material | null = null;
     private ringRoot: SceneObject | null = null;
     private ringMaterial: Material | null = null;
+    private ringHaloMaterial: Material | null = null;
     private labelObj: SceneObject | null = null;
     private lineMarkObj: SceneObject | null = null;
 
@@ -150,9 +160,29 @@ export class GroundTruthCorridorController extends BaseScriptComponent {
             this.corridorLayerMats.push(mat);
         }
 
+        this.corridorHaloMat = makeUnlitMaterial(
+            new vec4(this.baseColor.x, this.baseColor.y, this.baseColor.z, HALO_ALPHA),
+            true
+        );
+        this.corridorHaloMat.mainPass.blendMode = BlendMode.Add;
+        this.corridorHaloMat.mainPass.depthTest = false;
+        this.corridorHaloMat.mainPass.depthWrite = false;
+        this.corridorHaloObj = makeMeshChild(this.corridorRoot, "halo", getBoxMesh(), this.corridorHaloMat);
+        const haloWidthCm = 2 * toleranceCm * LAYER_WIDTH_MULS[0] * HALO_WIDTH_MUL;
+        this.corridorHaloObj.getTransform().setLocalScale(new vec3(2 * this.lineHalfLengthCm, this.depthCm, haloWidthCm));
+        this.corridorHaloObj.getTransform().setLocalPosition(new vec3(0, -this.depthCm / 2, this.lineLocalZCm + offsetCm));
+
         this.ringRoot = createChildObject(this.groundRoot, this.utilityName + "_Ring");
         this.ringMaterial = makeUnlitMaterial(this.baseColor, false);
         buildSegmentedRing(this.ringRoot, "ring", toleranceCm, RING_SEGMENTS, this.ringMaterial);
+        this.ringHaloMaterial = makeUnlitMaterial(
+            new vec4(this.baseColor.x, this.baseColor.y, this.baseColor.z, HALO_RING_ALPHA),
+            true
+        );
+        this.ringHaloMaterial.mainPass.blendMode = BlendMode.Add;
+        this.ringHaloMaterial.mainPass.depthTest = false;
+        this.ringHaloMaterial.mainPass.depthWrite = false;
+        buildSegmentedRing(this.ringRoot, "ringHalo", toleranceCm, RING_SEGMENTS, this.ringHaloMaterial, 1.0, HALO_RING_THICKNESS_CM);
         this.ringRoot.getTransform().setLocalPosition(new vec3(0, GROUND_SURFACE_Y_CM, this.lineLocalZCm + offsetCm));
 
         this.labelObj = makeWorldText(
@@ -180,6 +210,13 @@ export class GroundTruthCorridorController extends BaseScriptComponent {
             const c = this.baseColor;
             this.corridorLayerMats[i].mainPass.baseColor = new vec4(c.x, c.y, c.z, alpha);
         }
+        if (this.corridorHaloObj && this.corridorHaloMat) {
+            const haloWidthCm = 2 * tolCm * LAYER_WIDTH_MULS[0] * HALO_WIDTH_MUL;
+            this.corridorHaloObj.getTransform().setLocalScale(new vec3(2 * this.lineHalfLengthCm, this.depthCm, haloWidthCm));
+            this.corridorHaloObj.getTransform().setLocalPosition(new vec3(0, -this.depthCm / 2, this.lineLocalZCm + offsetCm));
+            const c = this.baseColor;
+            this.corridorHaloMat.mainPass.baseColor = new vec4(c.x, c.y, c.z, lerp(HALO_ALPHA, HALO_ALPHA * 2.5, t));
+        }
         if (this.ringRoot) {
             this.ringRoot.getTransform().setLocalPosition(new vec3(0, GROUND_SURFACE_Y_CM, this.lineLocalZCm + offsetCm));
         }
@@ -191,6 +228,9 @@ export class GroundTruthCorridorController extends BaseScriptComponent {
     setRingColor(color: vec4, pulse: boolean): void {
         if (this.ringMaterial) {
             this.ringMaterial.mainPass.baseColor = color;
+        }
+        if (this.ringHaloMaterial) {
+            this.ringHaloMaterial.mainPass.baseColor = new vec4(color.x, color.y, color.z, HALO_RING_ALPHA);
         }
         if (pulse && this.ringRoot) {
             const base = 1.0;
@@ -249,6 +289,10 @@ export class GroundTruthCorridorController extends BaseScriptComponent {
             const base = LAYER_BASE_ALPHAS[i];
             const c = this.baseColor;
             this.corridorLayerMats[i].mainPass.baseColor = new vec4(c.x, c.y, c.z, base * fadeMul);
+        }
+        if (this.corridorHaloMat) {
+            const c = this.baseColor;
+            this.corridorHaloMat.mainPass.baseColor = new vec4(c.x, c.y, c.z, HALO_ALPHA * fadeMul);
         }
     }
 }
