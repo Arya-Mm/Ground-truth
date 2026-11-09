@@ -109,7 +109,7 @@
   Intensity: 1.000000
   ShadowDensity: 0.440000
   ShadowBlurRadius: 4.000000
-  ShadowTextureSize: 512
+  ShadowTextureSize: 1024
   AutoLightSourcePosition: true
   AutoShadowFrustumSize: true
   AutoShadowFrustumSizeExtend: 2.000000
@@ -131,7 +131,7 @@
   OuterConeAngle: 45.000000
   FalloffType: None
   FalloffRange: .inf
-  ShadowType: None
+  ShadowType: ShadowMap
 - !<SceneObject/00056e79-b066-62ca-0000-000000001406>
   PrefabRemaps:
     []
