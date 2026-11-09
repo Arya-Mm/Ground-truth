@@ -248,14 +248,14 @@
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 150.000000, y: 10.000000, z: -180.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 30.000000, y: 20.000000, z: 40.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 50.000000, y: 35.000000, z: 60.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
-    - !<own> c599bfc6-ad9a-4681-9986-49c8f9ebe360
     - !<own> 4a6cdd50-3cbb-479d-ad5c-7b02e1fbfd9b
+    - !<own> 42c6bb2c-3854-4af9-bf29-d11315f880ce
 - !<ScriptComponent/0847d2bb-a13f-4c4a-a404-169f67308f6f>
   PrefabRemaps:
     []
@@ -993,6 +993,26 @@
     []
   Components:
     - !<own> 1f969daa-5809-4500-b314-98d91ccba131
+- !<RenderMeshVisual/42c6bb2c-3854-4af9-bf29-d11315f880ce>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> f298f0d7-1dfa-4260-8be7-d4abd3240f12
+  Mesh: !<reference> 60bcaaf3-bc80-4cd0-b796-cc7042c8cd27
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/44097eaf-01da-45fb-8973-3bd8172618de>
   PrefabRemaps:
     []
@@ -2335,26 +2355,6 @@
   ScriptTypes:
     "":
       {}
-- !<RenderMeshVisual/c599bfc6-ad9a-4681-9986-49c8f9ebe360>
-  PrefabRemaps:
-    []
-  Name: Render Mesh Visual
-  Enabled: true
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> f298f0d7-1dfa-4260-8be7-d4abd3240f12
-  Mesh: !<reference> e3e89d4d-4da0-4562-95af-786a14ac8b79
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
 - !<ScriptComponent/c8e031d3-a8a1-468a-a419-427f8556de4c>
   PrefabRemaps:
     []
