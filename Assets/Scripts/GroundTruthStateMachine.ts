@@ -94,6 +94,8 @@ export class GroundTruthStateMachine extends BaseScriptComponent {
             });
             this.nextCrew.onNextCrewPinched.add(() => {
                 this.ringProximity.reset();
+                this.pothole.reset();
+                this.snapAnim.reset();
                 this.transitionTo("APPROACH");
             });
             this.startAcquire();
