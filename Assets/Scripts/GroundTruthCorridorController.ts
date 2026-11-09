@@ -20,8 +20,12 @@ import {
     createChildObject,
 } from "./GroundTruthGeometryUtils";
 
-const LAYER_WIDTH_MULS = [1.0, 0.65, 0.3];
-const LAYER_BASE_ALPHAS = [0.12, 0.22, 0.42];
+// More, narrower nested layers with a smoother alpha curve than the original 3-step
+// stack -- reads as a soft/volumetric fuzzy-edged corridor instead of a flat tinted
+// slab. Widths are same spirit as before (1.0 = full tolerance width down to a narrow
+// core), alphas ramp gently so there's no hard visible band edge.
+const LAYER_WIDTH_MULS = [1.0, 0.82, 0.62, 0.42, 0.22];
+const LAYER_BASE_ALPHAS = [0.05, 0.09, 0.15, 0.24, 0.38];
 const RING_SEGMENTS = 24;
 // Ground-surface decals (line mark, ring) must clear the dirt patch's top face.
 // shortcut: hardcodes the bootstrap-authored DirtPatch thickness (2cm box, so top face
@@ -131,6 +135,13 @@ export class GroundTruthCorridorController extends BaseScriptComponent {
                 new vec4(this.baseColor.x, this.baseColor.y, this.baseColor.z, LAYER_BASE_ALPHAS[i]),
                 true
             );
+            // Corridor is literally underground (negative local Y) -- without this it's
+            // invisible from a normal standing view angle, hidden behind the opaque dirt
+            // patch, only visible from directly above/inside the dug hole. Disabling the
+            // depth test makes it read through the ground like the brief's "ground itself
+            // shows a fuzzy uncertainty corridor" x-ray visualization.
+            mat.mainPass.depthTest = false;
+            mat.mainPass.depthWrite = false; // never occlude anything drawn after it
             const obj = makeMeshChild(this.corridorRoot, "layer" + i, getBoxMesh(), mat);
             const widthCm = 2 * toleranceCm * LAYER_WIDTH_MULS[i];
             obj.getTransform().setLocalScale(new vec3(2 * this.lineHalfLengthCm, this.depthCm, widthCm));

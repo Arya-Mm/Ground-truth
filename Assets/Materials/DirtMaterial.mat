@@ -84,7 +84,7 @@
     baseTex:
       typeIdx: 9
       value:
-        id: 491064d6-319d-48a9-a860-1990f124adaf
+        id: de4cbd24-1e3b-40f7-9b74-60099a4bd3a6
         sampler:
           filteringMode: Trilinear
           wrapModeU: Repeat
@@ -98,5 +98,5 @@
       value: 0.000000
     roughness:
       typeIdx: 1
-      value: 0.000000
+      value: 0.880000
   Pass: !<reference> c8812291-8276-4d3d-8933-f55a619a3eb7

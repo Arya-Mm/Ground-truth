@@ -3,10 +3,14 @@
 // controller (corridor layers, segmented rings, arrows, world text). Pure functions —
 // no @component, no state. Must not: hold scene refs between calls, know about state.
 //
-// shortcut: ring/arrow geometry uses stacked Box/Cylinder/Cone primitives instead of a
-// true annulus mesh (no custom MeshBuilder winding math needed). Good enough for a
-// hackathon demo's "tolerance ring outline" read; upgrade to a real annulus via
-// MeshBuilder (TriangleStrip, two-sided) if a filled/continuous ring is ever required.
+// Visual-polish pass (2026): tolerance rings are now true curved dashed annuli built
+// per-call with MeshBuilder (buildArcDashMesh/buildSegmentedRing) instead of straight
+// box chords — each dash is itself subdivided along the real circle arc, so it reads as
+// a circle at any radius instead of a polygon. World labels (makeWorldText) now get an
+// automatic soft dark backing panel sized to the text for legibility.
+// shortcut: label backing panel is sized by a character-count heuristic (not real glyph
+// metrics), so labels whose text changes later (score/status/gauge) keep their
+// first-build panel size — fine for this project's short, similar-length label strings.
 
 import { Billboard } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Billboard/Billboard";
 import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
@@ -63,6 +67,10 @@ export function cmToTextSize(cm: number): number {
     return Math.max(2, cm * 43.886);
 }
 
+// Dark, semi-translucent backing so white world-text stays legible over any background
+// (dirt, sky, corridor glow) — one consistent color across every label in the scene.
+const LABEL_BG_COLOR = new vec4(0.03, 0.03, 0.06, 0.72);
+
 export function makeWorldText(
     parent: SceneObject,
     name: string,
@@ -79,6 +87,17 @@ export function makeWorldText(
     t.depthTest = true;
     obj.getTransform().setLocalPosition(localPos);
     addBillboard(obj);
+
+    // Backing panel: a flat card behind the text, sized by a char-count heuristic
+    // (~0.58x the glyph height per character, plus padding). Pushed back along local -Z
+    // (away from the camera on a billboarded object) so the GPU depth test draws the
+    // text on top regardless of scene-graph order.
+    const panelW = Math.max(heightCm * 2.2, text.length * heightCm * 0.6 + heightCm * 1.4);
+    const panelH = heightCm * 2.0;
+    const panelMat = makeUnlitMaterial(LABEL_BG_COLOR, true);
+    const panel = makeMeshChild(obj, "bg", getBoxMesh(), panelMat);
+    panel.getTransform().setLocalScale(new vec3(panelW, panelH, 0.4));
+    panel.getTransform().setLocalPosition(new vec3(0, 0, -0.6));
     return obj;
 }
 
@@ -116,11 +135,67 @@ export function worldHorizontalDistance(a: vec3, b: vec3): number {
     return Math.sqrt(dx * dx + dz * dz);
 }
 
-// Builds a dashed circular outline (gap between short chord segments) as children of
-// `parent`, all sharing ONE material instance so callers can recolor/pulse the whole
-// ring by mutating that single material / scaling the parent. Segment length axis is Z
-// (so the canonical faceDirection yaw = atan2(dx, -dz) orients it along each chord with
-// no extra trig derivation).
+const RING_VERTEX_LAYOUT = [
+    { name: "position", components: 3 },
+    { name: "normal", components: 3 },
+];
+const RING_ARC_STEPS_PER_DASH = 6; // subdivisions per dash -> true curve, not a chord
+
+// Pushes one dash of a ring as a small curved wedge (inner wall + outer wall + top face
+// + capped ends) into the shared vertex/index arrays, in parent-local space (Y=0 at the
+// ground surface up to Y=heightCm). Faces are emitted double-sided (both triangle
+// windings) since winding convention isn't verified here and an invisible back-face
+// would be worse than a few extra triangles on this small a mesh.
+function appendRingDash(
+    verts: number[],
+    indices: number[],
+    radiusCm: number,
+    thicknessCm: number,
+    heightCm: number,
+    startAngle: number,
+    endAngle: number,
+    arcSteps: number
+): void {
+    const innerR = radiusCm - thicknessCm / 2;
+    const outerR = radiusCm + thicknessCm / 2;
+    const base = verts.length / 6;
+
+    const pushV = (x: number, y: number, z: number, nx: number, ny: number, nz: number) => {
+        verts.push(x, y, z, nx, ny, nz);
+    };
+    const pushQuadDS = (a: number, b: number, c: number, d: number) => {
+        indices.push(a, b, c, a, c, d);
+        indices.push(a, c, b, a, d, c);
+    };
+
+    for (let i = 0; i <= arcSteps; i++) {
+        const a = startAngle + (endAngle - startAngle) * (i / arcSteps);
+        const cx = Math.cos(a);
+        const cz = Math.sin(a);
+        pushV(innerR * cx, heightCm, innerR * cz, -cx, 0.3, -cz); // TI
+        pushV(outerR * cx, heightCm, outerR * cz, cx, 0.3, cz); // TO
+        pushV(outerR * cx, 0, outerR * cz, cx, 0, cz); // BO
+        pushV(innerR * cx, 0, innerR * cz, -cx, 0, -cz); // BI
+    }
+
+    for (let i = 0; i < arcSteps; i++) {
+        const o0 = base + i * 4;
+        const o1 = base + (i + 1) * 4;
+        const TI0 = o0, TO0 = o0 + 1, BO0 = o0 + 2, BI0 = o0 + 3;
+        const TI1 = o1, TO1 = o1 + 1, BO1 = o1 + 2, BI1 = o1 + 3;
+        pushQuadDS(TI0, TO0, TO1, TI1); // top
+        pushQuadDS(TO0, BO0, BO1, TO1); // outer wall
+        pushQuadDS(BI0, TI0, TI1, BI1); // inner wall
+    }
+    // end caps (close the cross-section at each end of the dash)
+    const s0 = base, s1 = base + arcSteps * 4;
+    pushQuadDS(s0, s0 + 1, s0 + 2, s0 + 3);
+    pushQuadDS(s1, s1 + 1, s1 + 2, s1 + 3);
+}
+
+// Builds a true curved dashed ring (annulus arcs, not straight chords) as ONE mesh
+// under a new child of `parent`, using `material` directly so callers can still
+// recolor/pulse the whole ring by mutating that material / scaling the parent.
 export function buildSegmentedRing(
     parent: SceneObject,
     name: string,
@@ -130,27 +205,36 @@ export function buildSegmentedRing(
     heightCm: number = 1.5,
     thicknessCm: number = 3
 ): SceneObject[] {
-    const segObjs: SceneObject[] = [];
-    const pts: { x: number; z: number }[] = [];
-    for (let i = 0; i <= segments; i++) {
-        const a = (i / segments) * Math.PI * 2;
-        pts.push({ x: radiusCm * Math.cos(a), z: radiusCm * Math.sin(a) });
-    }
+    const verts: number[] = [];
+    const indices: number[] = [];
+    const slot = (Math.PI * 2) / segments;
+    const dashSpan = slot * 0.82; // same dash:gap ratio as the original chord ring
+    const gapHalf = (slot - dashSpan) / 2;
+
     for (let i = 0; i < segments; i++) {
-        const p0 = pts[i];
-        const p1 = pts[i + 1];
-        const dx = p1.x - p0.x;
-        const dz = p1.z - p0.z;
-        const fullLen = Math.sqrt(dx * dx + dz * dz);
-        const len = fullLen * 0.82; // small visual gap between segments
-        const midX = (p0.x + p1.x) / 2;
-        const midZ = (p0.z + p1.z) / 2;
-        const yaw = Math.atan2(dx, -dz);
-        const seg = makeMeshChild(parent, name + "_seg" + i, boxMesh, material);
-        seg.getTransform().setLocalScale(new vec3(thicknessCm, heightCm, len));
-        seg.getTransform().setLocalPosition(new vec3(midX, heightCm / 2, midZ));
-        seg.getTransform().setLocalRotation(quat.fromEulerAngles(0, yaw, 0));
-        segObjs.push(seg);
+        const slotStart = i * slot;
+        appendRingDash(
+            verts,
+            indices,
+            radiusCm,
+            thicknessCm,
+            heightCm,
+            slotStart + gapHalf,
+            slotStart + gapHalf + dashSpan,
+            RING_ARC_STEPS_PER_DASH
+        );
     }
-    return segObjs;
+
+    const mb = new MeshBuilder(RING_VERTEX_LAYOUT);
+    mb.topology = MeshTopology.Triangles;
+    mb.indexType = MeshIndexType.UInt16;
+    mb.appendVerticesInterleaved(verts);
+    mb.appendIndices(indices);
+    mb.updateMesh();
+
+    const obj = createChildObject(parent, name);
+    const rmv = obj.createComponent("Component.RenderMeshVisual") as RenderMeshVisual;
+    rmv.mesh = mb.getMesh();
+    rmv.mainMaterial = material;
+    return [obj];
 }
